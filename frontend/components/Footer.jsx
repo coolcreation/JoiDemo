@@ -16,7 +16,7 @@ export default function Footer() {
                     <img src={'./coffee_shop_logo_white.jpg'} alt="" />
                 </li>
                 <li className='text-center'>
-                    <h5 className='text-primary m-0 fw-bolder'>Ecommerce App @ {dateFunc()}</h5>
+                    <h5 className='text-primary m-0 fw-bolder'>JOI Demo App @ {dateFunc()}</h5>
                 </li>
                 <li className='d-flex justify-content-center gap-4'>
                     <a className="social-icon" href="https://twitter.com" target='blank'><img src={'./Twitter-icon.png'} alt="" /></a>

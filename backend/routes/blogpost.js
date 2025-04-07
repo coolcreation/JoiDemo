@@ -1,5 +1,6 @@
 import express from "express"
 import Blogpost from '../models/blogpostModel.js'
+import blogpostSchema from '../validation/blogpostValidation.js'  // joi - use in POST
 
 const router = express.Router()
 
@@ -15,6 +16,11 @@ router.get('/', async (req, res) => {
 // POST Blogpost
 router.post('/', async (req, res) => {
     const { name, email, details } = req.body
+
+    const validationResult = blogpostSchema.validate(req.body)    // joi
+    if (validationResult.error) {
+      return res.status(400).json({ error: validationResult.error.details });
+    }
 
     try {
       const existingBlogposts = await Blogpost.findOne({ name, email, details })

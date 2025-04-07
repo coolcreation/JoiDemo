@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import BlogpostForm from '../components/BlogpostForm';
+import blogpostFrontendSchema from '../validation/blogpostValidation'
 
 /* This page in a nutshell:
    The button click hits handleSubmit(), then the POST tries and if successful it's 'response.ok' which 
@@ -12,9 +13,13 @@ function BlogpostPage() {
 
   // create and initialize empty state variables so we can call DatePickerUI and BlogpostForm and send them for filling with values
   const [name, setName] = useState('')
+  const [nameError, setNameError] = useState(null);        // joi
   const [email, setEmail] = useState('')
+  const [emailError, setEmailError] = useState(null);      // joi
   const [details, setDetails] = useState('')
+  const [detailsError, setDetailsError] = useState(null);  // joi
   const [blogposts, setBlogposts] = useState([]) 
+
 
   // gets the initial list of blogposts, but also runs a second time after the POST request if it's successful
   const fetchData = async () => {
@@ -41,6 +46,34 @@ function BlogpostPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+      // Clear Joi
+      setNameError('');
+      setEmailError('');
+      setDetailsError('');
+      
+      // Use Joi to validate the data
+      const validationResult = blogpostFrontendSchema.validate({ name, email, details });
+
+      if (validationResult.error) {
+          const errors = validationResult.error.details
+          errors.forEach(error=>{
+              switch(error.context.key){
+                  case 'name':
+                      setNameError(error.message)
+                      break;
+                  case 'email':
+                      setEmailError(error.message)
+                      break;
+                  case 'details':
+                      setDetailsError(error.message)
+                      break;
+                  default:
+                      break;
+              }
+          })
+          return;
+      }
 
     try {
       const response = await fetch('http://localhost:5000/blogposts', {
@@ -84,10 +117,13 @@ function BlogpostPage() {
       <BlogpostForm
         name={name}
         setName={setName}
+        nameError={nameError}          // joi
         email={email}
         setEmail={setEmail}
+        emailError={emailError}        // joi
         details={details}
         setDetails={setDetails}
+        detailsError={detailsError}    // joi
         handleSubmit={handleSubmit}
       />
 
