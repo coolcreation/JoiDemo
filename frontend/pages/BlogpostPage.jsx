@@ -76,7 +76,8 @@ function BlogpostPage() {
   }
 
   return (
-    <div className="container d-flex flex-column bg-light border border-1 rounded-4 gap-0 gap-lg-2 py-2 p-lg-3 my-2 my-lg-4">
+     <div className='main'>
+          <div className="container d-flex flex-column bg-light border border-1 rounded-4 gap-0 gap-lg-2 py-2 p-lg-3 my-2 my-lg-4">
       <h1 className="text-center fs-3 m-0 mt-1">Blogpost page</h1>
 
       {/* BlogpostForm gets called and uses our empty state variables we already initilized, and fills them with values*/}
@@ -100,6 +101,7 @@ function BlogpostPage() {
         ))}
       </div>
     </div>
+     </div>
   )
 }
 
