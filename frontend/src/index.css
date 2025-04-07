@@ -1,0 +1,150 @@
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: black;
+}
+
+#root, .navbar-wrapper{
+  width: 100%;
+  max-width: 1500px;
+}
+#root{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 5px;
+  background-color: rgb(233, 232, 232);
+}
+.main{
+  display: flex;
+  align-items: center;
+  min-width: 100%;
+  flex: 1;
+  margin: 1rem auto;
+}
+.container{
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+li{
+  list-style: none;
+  margin: 0;
+}
+a{
+  text-decoration: none;
+}
+.text-primary{
+  color: #0f3133 !important;
+}
+.btn-primary{
+  background: #b2fff6;
+  color: #0f3133;
+  border-color: #0f3133;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.btn-primary:hover{
+  background: #8cfff2;
+  color: #0f3133;
+  border-color: #0f3133;
+}
+.btn-outline-primary{
+  color: #0f3133;
+  border-color: #0f3133;
+}
+.btn-outline-primary:hover{
+  background: #0f3133;
+  color: #eeeeee;
+  border-color: #0f3133;
+}
+.navbar-wrapper{
+  /* background-color: tan; */
+  margin: 0 auto;
+}
+.navbar{
+  background-color: white;
+  margin-bottom: 0;
+}
+.dropdown-menu{
+  margin: 1.2rem 0 0 0 !important 
+}
+
+/* USER HOME PAGE (DASHBOARD) */
+.user-homepage{
+  display: flex;
+  flex-direction: column;
+  width: 100% !important;
+  min-height: 100% !important;
+  margin: 1rem 0;
+}
+.user-homepage-container{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100% !important;
+  flex: 1 !important;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 12px;
+  background-color: white;
+}
+.homepage-navbar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 10px 10px 10px;
+  margin: 0 auto;
+  border-bottom: 1px solid #0f3133;
+}
+.homepage-body{
+  display: flex;
+  flex: 1;
+}
+.react-datepicker__input-container{
+   display: flex;
+   align-items: center;
+   width: 100%;
+}
+
+/****** DATEPICKER ******/
+.datepicker-wrapper{
+   width: 340px;
+}
+.custom-datepicker-input{
+   display: flex;
+   align-items: center;
+   width: 230px !important;
+   gap: 7px;
+   background-color: rgb(225, 244, 255);
+   padding: 6px 0 6px 12px;
+   border-radius: 11px;
+}
+.react-datepicker-popper {
+  position: absolute;
+  left: -20px !important
+}
+
+.datepicker{
+   width: 180px;
+   border: none;
+   border-radius: 7px;
+   text-align: center;
+}
+.datepicker-label{
+   width: 225px !important;
+   padding: 0 0 0 12px;
+}
+
+/* FOOTER */
+.footer ul li .social-icon img{
+  width: 25px;
+}
+.footer img{
+  width: 100px;
+}
