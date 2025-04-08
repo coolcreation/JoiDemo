@@ -1,5 +1,5 @@
 
-### Using `JOI` for node.js server validation  
+### Using `JOI` for node.js server validation & React validation  
 ---   
 
 **There are 3 places were data validation takes place**
